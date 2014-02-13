@@ -6,15 +6,12 @@ date <- as.character(as.Date(subset$Date, "%d/%m/%Y"))
 x <- paste(date, subset$Time)
 dateTime <- strptime(x, "%Y-%m-%d %H:%M:%S")
 
-#png("image.png", width = 480, height = 480)
 png("plot3.png", width = 480, height = 480)
 plot(dateTime, as.numeric(subset$Sub_metering_1), type="l",
      ylab="Energy Submetering", xlab="")
 lines(dateTime, as.numeric(subset$Sub_metering_2), type="l", col="red")
 lines(dateTime, as.numeric(subset$Sub_metering_3), type="l", col="blue")
 legend("topright", c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), lty=1, lwd =2.5,
-       col=c("black", "red", "blue"), cex=0.75)
-
        col=c("black", "red", "blue"))
 dev.off()
 

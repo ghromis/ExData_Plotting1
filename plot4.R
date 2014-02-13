@@ -6,7 +6,6 @@ date <- as.character(as.Date(subset$Date, "%d/%m/%Y"))
 x <- paste(date, subset$Time)
 dateTime <- strptime(x, "%Y-%m-%d %H:%M:%S")
 
-png("plot4a.png", width = 480, height = 480)
 png("plot4c.png", width = 480, height = 480)
 par(mfrow = c(2, 2)) 
 plot(dateTime, as.numeric(subset$Global_active_power), type="l",
@@ -18,7 +17,6 @@ plot(dateTime, as.numeric(subset$Sub_metering_1), type="l",
 lines(dateTime, as.numeric(subset$Sub_metering_2), type="l", col="red")
 lines(dateTime, as.numeric(subset$Sub_metering_3), type="l", col="blue")
 legend("topright", c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), lty=1, lwd =2.5,
-       col=c("black", "red", "blue"), cex=par()$cex)
        col=c("black", "red", "blue"), bty = "n")
 plot(dateTime, as.numeric(subset$Global_reactive_power), type="l", xlab="datetime",
      ylab="Global_reactive_power")
